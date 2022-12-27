@@ -1,0 +1,17 @@
+html{
+    display: block;
+    width: 100%;
+    border: none;
+    background-color: #C0C0C0;
+    color: black;
+    padding: 14px 28px;
+    font-size: 10px;
+    cursor: pointer;
+    text-align: center;
+}
+.errorMsg{
+    color: darkred;
+}
+.successMsg{
+    color: darkgreen;
+}
