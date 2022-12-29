@@ -16,7 +16,7 @@
 </style>
 <h1 align="center"> Patient Administration </h1>
 <form method="POST" action="">
-    <label for="patientID" class="required">Patient ID: </label>
+    <label for="patientID" class="required">Patient ID (SV_NR): </label>
     <input type="number" name="patientID" id="patientID">
     <span class="errorMsg"> <?php if (isset($patientID_ERROR)) {echo $patientID_ERROR;}?></span>
     <span class="successMsg"> <?php if (isset($patientID_SUCCESS)) {echo $patientID_SUCCESS;}?></span><br><br>
@@ -73,14 +73,14 @@
     <span class="errorMsg"> <?php if (isset($email_ERROR)) {echo $email_ERROR; }?></span>
     <span class="successMsg"> <?php if (isset($email_SUCCESS)) {echo $email_SUCCESS;}?></span><br><br>
 
-    <label for="weekDays" class="required"> Week Days: </label>
-    <input type="checkbox" name="weekDays[]" value="Monday" id="weekDays"> Monday
-    <input type="checkbox" name="weekDays[]" value="Tuesday" id="weekDays"> Tuesday
-    <input type="checkbox" name="weekDays[]" value="Wednesday" id="weekDays"> Wednesday
-    <input type="checkbox" name="weekDays[]" value="Thursday" id="weekDays"> Thursday
-    <input type="checkbox" name="weekDays[]" value="Friday" id="weekDays"> Friday
-    <input type="checkbox" name="weekDays[]" value="Saturday" id="weekDays"> Saturday
-    <input type="checkbox" name="weekDays[]" value="Sunday" id="weekDays"> Sunday <br>
+    <label for="weekDays" class="required"> Week Days: </label> <br>
+    <input type="checkbox" name="weekDays[]" value="Monday" id="weekDays"> Monday  <input type="number" min="1" max="1" name="morning_mo" value="morning"> - <input type="number" name="noon_mo" value="noon" min="1" max="1"  id="dose"> - <input type="number" min="1" max="1" name="evening_mo" value="evening"> - <input type="number" min="1" max="1" name="night_mo" value="night"> <br> <!--you need to change all inputs to numbers and change field size + disable them until box checked-->
+    <input type="checkbox" name="weekDays[]" value="Tuesday" id="weekDays"> Tuesday  <input type="number" min="1" max="1" name="morning_tue" value="morning" > - <input type="number" name="noon_tue" value="noon" min="1" max="1"  id="dose"> - <input type="number" min="1" max="1" name="evening_tue" value="evening"> - <input type="number" min="1" max="1" name="night_tue" value="night"> <br>
+    <input type="checkbox" name="weekDays[]" value="Wednesday" id="weekDays"> Wednesday   <input type="number" min="1" max="1" name="morning_tue" value="morning" > - <input type="number" name="noon_tue" value="noon" min="1" max="1"  id="dose"> - <input type="number" min="1" max="1" name="evening_tue" value="evening"> - <input type="number" min="1" max="1" name="night_tue" value="night"> <br>
+    <input type="checkbox" name="weekDays[]" value="Thursday" id="weekDays"> Thursday  <input type="number" min="1" max="1" name="morning_tue" value="morning" > - <input type="number" name="noon_tue" value="noon" min="1" max="1"  id="dose"> - <input type="number" min="1" max="1" name="evening_tue" value="evening"> - <input type="number" min="1" max="1" name="night_tue" value="night"> <br>
+    <input type="checkbox" name="weekDays[]" value="Friday" id="weekDays"> Friday   <input type="number" min="1" max="1" name="morning_tue" value="morning" > - <input type="number" name="noon_tue" value="noon" min="1" max="1"  id="dose"> - <input type="number" min="1" max="1" name="evening_tue" value="evening"> - <input type="number" min="1" max="1" name="night_tue" value="night"> <br>
+    <input type="checkbox" name="weekDays[]" value="Saturday" id="weekDays"> Saturday  <input type="number" min="1" max="1" name="morning_tue" value="morning" > - <input type="number" name="noon_tue" value="noon" min="1" max="1"  id="dose"> - <input type="number" min="1" max="1" name="evening_tue" value="evening"> - <input type="number" min="1" max="1" name="night_tue" value="night"> <br>
+    <input type="checkbox" name="weekDays[]" value="Sunday" id="weekDays"> Sunday   <input type="number" min="1" max="1" name="morning_tue" value="morning" > - <input type="number" name="noon_tue" value="noon" min="1" max="1"  id="dose"> - <input type="number" min="1" max="1" name="evening_tue" value="evening"> - <input type="number" min="1" max="1" name="night_tue" value="night"> <br>
     <span class="successMsg"> <?php if (isset($weekdays_SUCCESS)) {echo $weekdays_SUCCESS;}?></span>
     <span class="errorMsg"> <?php if (isset($weekdays_ERROR)) {echo $weekdays_ERROR; }?></span><br><br>
 

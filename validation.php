@@ -8,10 +8,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         if (strlen($_POST["patientID"]) == 5) {
             //echo "Patient ID:",$_POST["patientID"];echo "<br>";
             $patientID_SUCCESS = "PatientID set successfully";
-            $dontproceed=0;
         }else{
             $patientID_ERROR = 'Invalid Patient-ID!';
-            $dontproceed=1;
         }
     }
 
@@ -40,10 +38,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         if ($_POST["birthdate"] < $dateNow){
             //echo "Birthdate: ",$_POST["birthdate"];echo "<br>";
             $birthdate_SUCCESS = "Birthdate set successfully.";
-            $dontproceed=0;
         }else if($_POST["birthdate"] > $dateNow){
             $birthdate_ERROR = "Invalid Birthdate. Date exceeds today's Date.";
-            $dontproceed=1;
         }
     }
 
@@ -95,10 +91,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         if (filter_var($_POST["email"], FILTER_VALIDATE_EMAIL)){
             // echo "E-Mail: ",$_POST["email"]; echo "<br>";
             $email_SUCCESS = "E-Mail set successfully.";
-            $dontproceed=0;
         }else{
             $email_ERROR = "Invalid E-Mail!";
-            $dontproceed=1;
         }
     }
 
@@ -108,10 +102,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         if (strlen($_POST["postalCode"]) == 4) {
             //echo "Postal Code: ",$_POST["postalCode"];echo "<br>";
             $postalCode_SUCCESS = "Postal Code set successfully.";
-            $dontproceed=0;
         } else{
             $postalCode_ERROR = "Invalid Postal Code!";
-            $dontproceed=1;
         }
     }
 
@@ -128,114 +120,18 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         if (strlen($_POST["phoneNumber"])==11||strlen($_POST["phoneNumber"])==13){
             //echo "Phone Number: ", $_POST["phoneNumber"];echo "<br>";
             $phoneNumber_SUCCESS = "Phone Number set successfully.";
-            $dontproceed=0;
         }else{
             $phoneNumber_ERROR = "Invalid Phone Number!";
-            $dontproceed=1;
         }
     }
-
-
     if (empty($_POST["weekDays"])){
         $weekdays_ERROR = "Please select the days on which the patient should take the medication";
-        $dontproceed=1;
     }else{
         foreach ($_POST["weekDays"] as $value){
-            echo $value.'<br/>';
+           // echo $value.'<br/>';
             $weekdays_SUCCESS = "The correct weekdays were set successfully";
         }
-        /*if($_POST["weekDays"] == "Monday"){
-            echo "Monday: ";echo "<br>";
-            $weekdays_SUCCESS = "The correct weekdays were set successfully";
-            $dontproceed=0;
-        } if($_POST["weekDays"] == "Tuesday"){
-            echo "Tuesday: ";echo "<br>";
-            $weekdays_SUCCESS = "The correct weekdays were set successfully";
-            $dontproceed=0;
-        } if($_POST["weekDays"] == "Wednesday"){
-            echo "Wednesday: ";echo "<br>";
-            $weekdays_SUCCESS = "The correct weekdays were set successfully";
-            $dontproceed=0;
-        }
-        if($_POST["weekDays"] == "Thursday"){
-            echo "Thursday: ";echo "<br>";
-            $weekdays_SUCCESS = "The correct weekdays were set successfully";
-            $dontproceed=0;
-        } if($_POST["weekDays"] == "Friday"){
-            echo "Friday: ";echo "<br>";
-            $weekdays_SUCCESS = "The correct weekdays were set successfully";
-            $dontproceed=0;
-        } if($_POST["weekDays"] == "Saturday"){
-            echo "Saturday: ";echo "<br>";
-            $weekdays_SUCCESS = "The correct weekdays were set successfully";
-            $dontproceed=0;
-        } if($_POST["weekDays"] == "Sunday"){
-            echo "Sunday: ";echo "<br>";
-            $weekdays_SUCCESS = "The correct weekdays were set successfully";
-            $dontproceed=0;
-        }*/
     }
-}
-
-if ((isset($_POST["patientID"]))&&(isset($_POST["firstname"]))&&(isset($_POST["familyName"]))&&(isset($_POST["birthdate"]))&&(isset($_POST["gender"]))&&(isset($_POST["maritalStatus"]))&&(isset($_POST["address"]))&&(isset($_POST["postalCode"]))&&(isset($_POST["city"]))&&(isset($_POST["phoneNumber"]))&&(isset($_POST["email"]))&&($dontproceed==0)){
-    $patient=array();
-    //Transform to JSON the required fields, as long as they are all fulfilled and the optional fields dont have wrong data.
-    $patient['resourceType']='Patient';
-    $patient['identifier']['id']=$_POST["patientID"];
-    $patient['name']['given']=$_POST["firstname"];
-    $patient['name']['family']=$_POST["familyName"];
-    $patient['birthDate']=$_POST["birthdate"];
-    $patient['gender']=$_POST["gender"];
-    $patient['maritalStatus']['coding']['display']=$_POST["maritalStatus"];
-    $patient['address']['line']=[$_POST["address"]];
-    $patient['address']['postalCode']=$_POST["postalCode"];
-    $patient['address']['city']=$_POST["city"];
-    $patient['telecom']['system']="phone";
-    $patient['telecom']['value']=$_POST["phoneNumber"];
-    $patient['telecom']['system']=["email"];
-    $patient['telecom']['value']=$_POST["email"];
-
-    //Transform to JSON the optional field in case it is set
-    if (isset($_POST["secondName"])){
-        $patient['name']['given']=[$_POST["firstname"], $_POST["secondName"]];
-    }
-
-    $patientJsonData=json_encode($patient);
-    $curl = curl_init();
-
-    curl_setopt_array($curl, array(
-        CURLOPT_URL => 'http://hapi.fhir.org/baseR4/Patient',
-        CURLOPT_RETURNTRANSFER => true,
-        CURLOPT_ENCODING => '',
-        CURLOPT_MAXREDIRS => 10,
-        CURLOPT_TIMEOUT => 0,
-        CURLOPT_FOLLOWLOCATION => true,
-        CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
-        CURLOPT_CUSTOMREQUEST => 'POST',
-        CURLOPT_POSTFIELDS => $patientJsonData,
-        CURLOPT_HTTPHEADER => array(
-            'Content-Type: application/json'
-        ),
-    ));
-
-    $response = curl_exec($curl);
-    curl_close($curl);
-
-
-    /* $delim=', "id"';
-    $pos=strpos($response,$delim);
-    echo $pos;
-    $important=substr($response,$pos+strlen($delim)-1,5);
-    echo $important; */
-
-    $impt=substr($response,40,7);
-}
-
-function test_input($data)
-{
-    $data = trim($data);
-    $data = stripslashes($data);
-    $data = htmlspecialchars($data);
 }
 
 ?>
