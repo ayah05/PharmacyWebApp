@@ -5,7 +5,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if (empty($_POST["patientID"])) {
         $patientID_ERROR = 'Please enter the Patient-ID!';
     }else {
-        if (checkSV($_POST["patientID"]) == 10) {
+        if (checkSV($_POST["patientID"])) {
             //echo "Patient ID:",$_POST["patientID"];echo "<br>";
             $patientID_SUCCESS = "PatientID set successfully";
         }else{
