@@ -5,7 +5,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if (empty($_POST["patientID"])) {
         $patientID_ERROR = 'Please enter the Patient-ID!';
     }else {
-        if (strlen($_POST["patientID"]) == 10) {
+        if (checkSV($_POST["patientID"])) {
             //echo "Patient ID:",$_POST["patientID"];echo "<br>";
             $patientID_SUCCESS = "PatientID set successfully";
         }else{
@@ -132,5 +132,23 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $weekdays_SUCCESS = "The correct weekdays were set successfully";
         }
     }
+}
+
+function checkSV($svnr) {
+    if(strlen($svnr) != 10 || $svnr[0] == "0"){
+        return false;
+    }
+    $sv_weights = [3, 7, 9, 0, 5, 8, 4, 2, 1, 6];
+    $weighted_sum = 0;
+    $ctr = 0;
+    foreach (str_split($svnr) as $digit) {
+        if(!is_numeric($digit)){
+            return false;
+        }
+        $weighted_sum += $digit * $sv_weights[$ctr];
+        $ctr++;
+    }
+    $param = $weighted_sum % 11;
+    return ($param !== 0) && (strval($param) == $svnr[3]);
 }
 ?>
