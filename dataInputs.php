@@ -74,11 +74,11 @@
     <span class="successMsg"> <?php if (isset($email_SUCCESS)) {echo $email_SUCCESS;}?></span><br><br>
 
     <label for="weekDays" class="required"> Week Days: </label> <br><br>
-    <label for="drugs" class="required"> Drug 1: </label><br>
+    <label for="drugs" class="required"> Drug 1: </label> <input type="text"><br>
     <input type="number" min="0" max="9" name="morning_mo" value="morning"> - <input type="number" name="noon_mo" value="noon" min="0" max="9" id="dose"> - <input type="number" min="0" max="9" name="evening_mo" value="evening"> - <input type="number" min="0" max="9" name="night_mo" value="night"> <br> <!--you need to change all inputs to numbers and change field size + disable them until box checked-->
-    <label for="drugs" class="required"> Drug 2: </label><br>
+    <label for="drugs" class="required"> Drug 2: </label></label> <input type="text"><br>
     <input type="number" min="0" max="9"  name="morning_tue" value="morning" > - <input type="number" name="noon_tue" value="noon" min="0" max="9" id="dose"> - <input type="number" min="0" max="9" name="evening_tue" value="evening"> - <input type="number" min="0" max="9" name="night_tue" value="night"> <br>
-    <label for="drugs" class="required"> Drug 3: </label><br>
+    <label for="drugs" class="required"> Drug 3: </label></label> <input type="text"><br>
     <input type="number" min="0" max="9"  name="morning_tue" value="morning" > - <input type="number" name="noon_tue" value="noon" min="0" max="9" id="dose"> - <input type="number" min="0" max="9" name="evening_tue" value="evening"> - <input type="number" min="0" max="9" name="night_tue" value="night"> <br>
     <span class="successMsg"> <?php if (isset($weekdays_SUCCESS)) {echo $weekdays_SUCCESS;}?></span>
     <span class="errorMsg"> <?php if (isset($weekdays_ERROR)) {echo $weekdays_ERROR; }?></span><br><br>
