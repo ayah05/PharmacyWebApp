@@ -9,9 +9,13 @@ html{
     cursor: pointer;
     text-align: center;
 }
-.errorMsg{
+.required:before{
+    content:"*";
+    color:red;
+}
+.errorMsg, .error{
     color: darkred;
 }
-.successMsg{
+.successMsg,.success{
     color: darkgreen;
 }

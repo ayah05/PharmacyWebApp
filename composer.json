@@ -1,0 +1,16 @@
+{
+  "name": "example/wiinf-backend",
+  "type": "project",
+  "description": "a tool to upload and parse ELGA CDA-medication summaries and exporting medication intake prescription data as .csv-file",
+  "minimum-stability": "stable",
+  "license": "all rights reserved",
+  "authors": [
+    {
+      "name": "Moritz Grob",
+      "email": "be19b006@technikum-wien.at"
+    }
+  ],
+  "require": {
+    "ext-dom": "*"
+  }
+}
