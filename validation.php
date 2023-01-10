@@ -61,18 +61,25 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     if(empty($_POST["maritalStatus"])){
         $maritalStatus_ERROR = "Please select a Marital Status!";
-    }else {
+    }else{
         // echo "Marital Status: ";
         if($_POST["maritalStatus"] == "single"){
             // echo "Single";echo "<br>";
             $maritalStatus_SUCCESS = "Marital Status set successfully.";
-        }if($_POST["maritalStatus"] == "married"){
+        }
+        if($_POST["maritalStatus"] == "married"){
             // echo "Married";echo "<br>";
             $maritalStatus_SUCCESS = "Marital Status set successfully.";
-        }if($_POST["maritalStatus"] == "divorced"){
+        }
+        if($_POST["maritalStatus"] == "divorced"){
             // echo "Divorced";echo "<br>";
             $maritalStatus_SUCCESS = "Marital Status set successfully.";
-        }if($_POST["maritalStatus"] == "domesticPartner"){
+        }
+        if($_POST["maritalStatus"] == "domesticPartner") {
+            // echo "Domestic Partner";echo "<br>";
+            $maritalStatus_SUCCESS = "Marital Status set successfully.";
+        }
+        if($_POST["maritalStatus"] == "widowed"){
             // echo "Domestic Partner";echo "<br>";
             $maritalStatus_SUCCESS = "Marital Status set successfully.";
         }
@@ -124,17 +131,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $phoneNumber_ERROR = "Invalid Phone Number!";
         }
     }
-    if (empty($_POST["weekDays"])){
-        $weekdays_ERROR = "Please select the days on which the patient should take the medication";
-    }else{
-        foreach ($_POST["weekDays"] as $value){
-           // echo $value.'<br/>';
-            $weekdays_SUCCESS = "The correct weekdays were set successfully";
-        }
-    }
+
 }
 
-function checkSV($svnr) {
+function checkSV(String $svnr): bool {
     if(strlen($svnr) != 10 || $svnr[0] == "0"){
         return false;
     }

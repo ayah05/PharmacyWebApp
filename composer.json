@@ -1,13 +1,17 @@
 {
-  "name": "example/wiinf-backend",
+  "name": "wiinf/pharmacy-web-app",
   "type": "project",
-  "description": "a tool to upload and parse ELGA CDA-medication summaries and exporting medication intake prescription data as .csv-file",
+  "description": "a simple tool to enter patient data or upload and parse ELGA CDA-medication summaries and export medication intake prescription data",
   "minimum-stability": "stable",
   "license": "all rights reserved",
   "authors": [
     {
       "name": "Moritz Grob",
       "email": "be19b006@technikum-wien.at"
+    },
+    {
+      "name": "Ayah El-sharkawy",
+      "email": "be20b081@technikum-wien.at"
     }
   ],
   "require": {
