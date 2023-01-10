@@ -67,7 +67,7 @@
 
     <!-- DOB -->
     <label for="birthdate" class="required">Birthday:  </label>
-    <input type="date" name="birthdate" id="birthdate" required <?php if (isset($_SESSION["dob"])) {echo "value='{$_SESSION["dob"]}'"; unset($_SESSION["dob"]);}?>>
+    <input type="date" name="birthdate" id="birthdate" required max=<?php echo '"'.(new DateTime("now")) -> format('Y-m-d').'" '?> <?php if (isset($_SESSION["dob"])) {echo "value='{$_SESSION["dob"]}'"; unset($_SESSION["dob"]);}?>>
     <span class="errorMsg"> <?php if (isset($birthdate_ERROR)) {echo $birthdate_ERROR;} ?></span>
     <span class="successMsg"> <?php if (isset($birthdate_SUCCESS)) {echo $birthdate_SUCCESS;}?></span><br><br>
 
