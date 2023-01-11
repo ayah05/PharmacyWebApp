@@ -1033,7 +1033,7 @@
                     </ns2:ingredient>
                     <ns2:ingredient classCode="ACTI">
                       <ns2:ingredient classCode="MMAT" determinerCode="KIND">
-                        <ns2:code code="1709671" codeSystem="1.2.40.0.34.5.156" codeSystemName="Medikation_AGES_Wirkstoffe_CL_AGES_TEST" displayName="ACETYLSALICYLSÄURE"/>
+                        <ns2:code code="1709671" codeSystem="1.2.40.0.34.5.156" codeSystemName="Medikation_AGES_Wirkstoffe_CL_AGES_TEST" displayName="BISOPROLOL HEMIFUMARAT"/>
                         <ns2:name>BISOPROLOL HEMIFUMARAT</ns2:name>
                       </ns2:ingredient>
                     </ns2:ingredient>
