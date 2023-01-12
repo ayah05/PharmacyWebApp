@@ -6,7 +6,9 @@
     <meta name =" viewport " content =" width = device-width , initial - scale =1.0 ">
     <title> My PHP Web Application </title >
     <link rel="stylesheet" href="websiteStyle.css">
+    <!--
     <script src="https://code.jquery.com/jquery-3.6.1.min.js" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
+    -->
     <script>
         function checkSVNR(input){
             const weights = [3, 7, 9, 0, 5, 8, 4, 2, 1, 6];
@@ -36,7 +38,7 @@
 
 <!-- UPLOAD -->
 <form method="post"  action="cda-parser.php" enctype="multipart/form-data">
-    <label class="form-label" for ="medikationsliste">You can upload an ELGA-eMedication summary in CDA-format:<br>
+    <label class="form-label" for ="medikationsliste">You can upload an ELGA-eMedication summary in CDA-format:<br><br>
         <input type="file" id="medikationsliste" name="medikationsliste" accept="application/xml, text/xml" required>
         <button type="submit" id="submit" name="submit">Upload</button>
     </label>
@@ -155,7 +157,8 @@
 
     <button type="submit" class="submit" name="sendDataButton"> Send Data</button><br>
     <div id="info" hidden>
-        <?php if(isset($patientID_SUCCESS) && isset($firstname_SUCCESS) && isset($familyName_SUCCESS) && isset($birthdate_SUCCESS) && isset($maritalStatus_SUCCESS) && isset($address_SUCCESS) && isset($postalCode_SUCCESS) && isset($city_SUCCESS) && isset($phoneNumber_SUCCESS) && isset($email_SUCCESS))
+        <?php
+        if(isset($patientID_SUCCESS) && isset($firstname_SUCCESS) && isset($familyName_SUCCESS) && isset($birthdate_SUCCESS) && isset($maritalStatus_SUCCESS) && isset($address_SUCCESS) && isset($postalCode_SUCCESS) && isset($city_SUCCESS) && isset($phoneNumber_SUCCESS) && isset($email_SUCCESS))
             echo "<script>yay()</script>";
         ?>
     </div>

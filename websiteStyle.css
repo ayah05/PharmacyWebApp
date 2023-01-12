@@ -5,17 +5,17 @@ html{
     background-color: #C0C0C0;
     color: black;
     padding: 14px 28px;
-    font-size: 10px;
+    font-size: 10pt;
     cursor: pointer;
     text-align: center;
 }
 .required:before{
     content:"*";
-    color:red;
+    color: red;
 }
 .errorMsg, .error{
     color: darkred;
 }
-.successMsg,.success{
+.successMsg, .success{
     color: darkgreen;
 }
