@@ -1,12 +1,9 @@
 Workflow Integration: Pharmacy Web App
 ============================================
 
-
-
-##wichtig:
+## wichtig:
 <li>die medikationsliste ist im upload-ordner zu finden.</li>
-<li>der inhalt von output und upload kann gelöscht werden, die ordner selbst müssen jedoch im verzeichnis bleiben.
-
+<li>der inhalt von output und upload kann gelöscht werden, die ordner selbst müssen jedoch im verzeichnis bleiben.<br>
 wenn es trotzdem nicht geht, php.ini suchen (zB im browser info.php öffnen, dort nach
 "Loaded Configuation File suchen") und dort <code>file_uploads=On</code> setzen.</li>
 
